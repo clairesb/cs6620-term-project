@@ -16,7 +16,7 @@ jobs:
             context: pentest/backend
             image: pentest
           - service: sast
-            context: sat/backend
+            context: sast/backend
             image: sast
 
     steps:
