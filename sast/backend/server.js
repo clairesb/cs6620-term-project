@@ -1,13 +1,22 @@
 import express from 'express';
 import cors from 'cors';
 import { scanCode, scanFile, scanDirectory } from './scanner.js';
+import { auditResponses, auditRequestIntent, initAudit } from './audit_trail.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
+app.use(auditResponses());
 app.use(cors());
-app.use(express.json({ limit: '10mb' }));
+app.use(
+  express.json({
+    verify: (req, _res, buf) => {
+      req.rawBody = buf; // exact bytes, used for the request hash
+    }
+  })
+);
+app.use(auditRequestIntent());
 
 // Health check endpoint
 app.get('/health', (req, res) => {
