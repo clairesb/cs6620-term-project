@@ -1,0 +1,37 @@
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+
+# Node
+node_modules/
+dist/
+*.tsbuildinfo
+.env.local
+.env.*.local
+
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+!*.tfvars.example
+**/.build/
+
+# Lambda package artifacts
+**/stub-lambda/*.zip
+
+# Personal Milestone 1 prep (local only; not for teammates)
+Docs/DEMO_SCRIPT.md
+Docs/TODAY_ACTION_PLAN.md
+Docs/MILESTONE1_RUNBOOK.md
+Docs/REFLECTION_*.md
+Docs/REFLECTION_*.pdf
+
+# Course material PDFs (not for redistribution)
+*.pdf
+
+# Local build staging
+.submission_build/

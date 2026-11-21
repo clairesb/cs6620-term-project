@@ -1,0 +1,3 @@
+# Copy to terraform.tfvars and fill in from `aws sts get-caller-identity`.
+# In Learner Lab, Lambda must use the pre-provisioned LabRole.
+lambda_execution_role_arn = "arn:aws:iam::123456789012:role/LabRole"
