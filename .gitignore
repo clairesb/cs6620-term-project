@@ -1,3 +1,7 @@
 node_modules/
 .credentials/
 output.json
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl

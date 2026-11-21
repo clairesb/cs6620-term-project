@@ -9,7 +9,7 @@ if (!BUCKET) throw new Error('AUDIT_BUCKET must be set');
 const SERVICE = process.env.SERVICE_NAME ?? 'sast';
 const VERSION = process.env.GIT_SHA ?? 'unknown';
 const TIMEOUT_MS = 5000; 
-const SKIP = new Set()
+const SKIP = new Set(['/health'])
 
 const s3 = new S3Client({ maxAttempts: 3, forcePathStyle: Boolean(process.env.AWS_ENDPOINT_URL) });
 let taskArn = 'unknown';
