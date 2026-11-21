@@ -63,11 +63,7 @@ data "aws_iam_role" "lab" {
 }
 
 # ---------------------------------------------------------------- S3
-# The aws_s3_bucket resource reads back settings (e.g. object lock) right
-# after creation, and Learner Lab's SCP denies that call. So the bucket is
-# created and destroyed with the AWS CLI instead, still tied to Terraform's
-# lifecycle. Requires the AWS CLI on the machine running terraform.
-# New buckets are encrypted (AES256) and block public access by default.
+
 resource "terraform_data" "audit_bucket" {
   input = {
     name   = local.audit_bucket
