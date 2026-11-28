@@ -1,0 +1,17 @@
+# Claude wrote me this dockerfile
+
+FROM node:22-alpine
+
+ENV NODE_ENV=production
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install --omit=dev && npm cache clean --force
+
+COPY *.js ./
+
+# Run as the unprivileged "node" user that ships with the image
+USER node
+
+EXPOSE 3000
+CMD ["node", "server.js"]
